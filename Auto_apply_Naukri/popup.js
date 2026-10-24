@@ -40,4 +40,20 @@ document.querySelector("#fill-button").addEventListener("click", async () => {
   }
 });
 
+document.querySelector("#share-interest-button").addEventListener("click", async () => {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab?.id || !/^https:\/\/(www\.)?naukri\.com\//i.test(tab.url || "")) {
+    showStatus("Open a Naukri jobs page first.", true);
+    return;
+  }
+  try {
+    const result = await chrome.tabs.sendMessage(tab.id, { type: "SHARE_INTEREST_IN_ALL" });
+    if (result?.error) showStatus(result.error, true);
+    else if (result?.marked) showStatus(`Marked interest in ${result.marked} visible job${result.marked === 1 ? "" : "s"}.`);
+    else showStatus("No visible Share Interest buttons found.");
+  } catch {
+    showStatus("Reload the Naukri tab, then try again.", true);
+  }
+});
+
 loadProfile();

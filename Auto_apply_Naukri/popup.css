@@ -29,6 +29,8 @@ input:focus, textarea:focus { border-color: #7394ee; box-shadow: 0 0 0 3px #2457
 .button-primary span { padding-left: 5px; font-size: 14px; }
 .button-quiet { background: #edf1f8; color: #344660; }
 .button-quiet:hover { background: #e1e8f3; }
+.button-interest { width: 100%; margin-top: 8px; border: 1px solid #bac9ee; background: #f7f9ff; color: #2457d6; }
+.button-interest:hover { background: #edf2ff; }
 .status { min-height: 17px; margin: 7px 0 3px; color: #3c6b4a; font-size: 10px; }
 .status.error { color: #b23b45; }
 footer { display: flex; justify-content: space-between; margin: 0 -22px; padding: 10px 22px; border-top: 1px solid #edf0f4; color: #77859a; font-size: 10px; }

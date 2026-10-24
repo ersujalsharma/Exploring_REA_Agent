@@ -50,10 +50,41 @@ function fill(profile) {
   return filled;
 }
 
+function buttonLabels(element) {
+  return [
+    element.innerText,
+    element.textContent,
+    element.getAttribute("aria-label"),
+    element.getAttribute("title")
+  ].filter(Boolean).map((text) => text.replace(/\s+/g, " ").trim().toLowerCase());
+}
+
+function shareInterestButtons() {
+  return [...document.querySelectorAll("button, [role='button'], a")].filter((element) => {
+    const isShareInterest = buttonLabels(element).some((text) => text === "share interest");
+    return isShareInterest &&
+      !element.disabled &&
+      element.getAttribute("aria-disabled") !== "true" &&
+      element.getClientRects().length > 0;
+  });
+}
+
+function shareInterestInAll() {
+  const buttons = shareInterestButtons();
+  for (const button of buttons) {
+    button.click();
+  }
+  return buttons.length;
+}
+
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
-  if (message?.type !== "FILL_PROFILE") return;
+  if (!["FILL_PROFILE", "SHARE_INTEREST_IN_ALL"].includes(message?.type)) return;
   if (!location.hostname.endsWith("naukri.com")) {
     sendResponse({ error: "This helper only works on Naukri." });
+    return;
+  }
+  if (message.type === "SHARE_INTEREST_IN_ALL") {
+    sendResponse({ marked: shareInterestInAll() });
     return;
   }
   sendResponse({ filled: fill(message.profile || {}) });
