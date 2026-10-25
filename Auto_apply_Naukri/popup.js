@@ -40,6 +40,21 @@ document.querySelector("#fill-button").addEventListener("click", async () => {
   }
 });
 
+document.querySelector("#basic-save-button").addEventListener("click", async () => {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab?.id || !/^https:\/\/(www\.)?naukri\.com\//i.test(tab.url || "")) {
+    showStatus("Open a Naukri page first.", true);
+    return;
+  }
+  try {
+    const result = await chrome.tabs.sendMessage(tab.id, { type: "SAVE_BASIC_DETAILS" });
+    if (result?.error) showStatus(result.error, true);
+    else showStatus("Opening profile and saving Basic details. You can close this popup.");
+  } catch {
+    showStatus("Reload the Naukri tab, then try again.", true);
+  }
+});
+
 document.querySelector("#share-interest-button").addEventListener("click", async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id || !/^https:\/\/(www\.)?naukri\.com\//i.test(tab.url || "")) {

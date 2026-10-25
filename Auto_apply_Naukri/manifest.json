@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Naukri Apply Helper",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fill common job application fields from a profile stored on your device.",
   "permissions": ["storage", "activeTab"],
   "host_permissions": ["https://www.naukri.com/*", "https://naukri.com/*"],
