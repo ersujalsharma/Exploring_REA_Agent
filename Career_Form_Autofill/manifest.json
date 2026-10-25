@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Career Form Autofill",
+  "version": "1.0.0",
+  "description": "Fill common career application fields from a profile stored locally in Chrome.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_title": "Career Form Autofill",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

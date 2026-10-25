@@ -1,0 +1,20 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light; --ink: #172b4d; --muted: #66758b; --line: #dfe5ed; --blue: #2457d6; --pale: #f4f7fc; }
+body { width: 420px; max-height: 600px; margin: 0; overflow-y: auto; background: #fff; color: var(--ink); font: 13px/1.45 Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+main { padding: 20px 22px 0; }
+header { display: flex; align-items: center; gap: 11px; }
+.mark { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 12px; background: linear-gradient(145deg, #315fe0, #183ca6); color: #fff; font-size: 19px; font-weight: 750; }
+header p { margin: 0 0 1px; color: #738198; font-size: 9px; font-weight: 750; letter-spacing: .11em; }
+h1, h2 { margin: 0; } h1 { font-size: 17px; letter-spacing: -.02em; } h2 { font-size: 14px; }
+.local { display: flex; align-items: center; gap: 5px; margin-left: auto; border: 1px solid #dcefe5; border-radius: 20px; padding: 5px 8px; color: #347050; font-size: 10px; font-weight: 650; white-space: nowrap; }
+.local i { width: 6px; height: 6px; border-radius: 50%; background: #46a66a; }
+.intro { margin: 18px -22px 16px; padding: 13px 22px; background: var(--pale); border-block: 1px solid #e9edf4; } .intro p { margin: 3px 0 0; color: var(--muted); font-size: 11px; }
+.heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9px; } .heading span { color: #8491a5; font-size: 10px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 10px; }
+label { display: block; margin-bottom: 9px; } label span { display: block; margin-bottom: 3px; color: #46566d; font-size: 10px; font-weight: 650; }
+input, textarea { display: block; width: 100%; border: 1px solid var(--line); border-radius: 7px; outline: none; background: #fff; padding: 7px 8px; color: var(--ink); font: inherit; font-size: 11px; } input { height: 32px; } textarea { min-height: 45px; resize: vertical; }
+input:focus, textarea:focus { border-color: #7394ee; box-shadow: 0 0 0 3px #2457d614; }
+.actions { display: flex; gap: 8px; } button { height: 35px; border: 0; border-radius: 7px; padding: 0 12px; cursor: pointer; font: inherit; font-size: 11px; font-weight: 700; } .primary { flex: 1; background: var(--blue); color: #fff; } .primary:hover { background: #1948bd; } .secondary { background: #edf1f8; color: #344660; }
+.linkedin { width: 100%; margin-top: 8px; border: 1px solid #8ab4e8; background: #f4f8fe; color: #0a66c2; } .linkedin:hover { background: #e7f1fc; }
+.status { min-height: 17px; margin: 7px 0; color: #3c6b4a; font-size: 10px; } .status.error { color: #b23b45; }
+footer { margin: 0 -22px; padding: 10px 22px; border-top: 1px solid #edf0f4; color: #77859a; font-size: 10px; }

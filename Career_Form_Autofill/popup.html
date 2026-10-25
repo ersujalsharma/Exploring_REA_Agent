@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Career Form Autofill</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mark" aria-hidden="true">C</div>
+        <div><p>PRIVATE CAREER TOOLKIT</p><h1>Career Form Autofill</h1></div>
+        <span class="local"><i></i>Local only</span>
+      </header>
+      <section class="intro">
+        <h2>Fill the routine parts.</h2>
+        <p>Your details stay in Chrome on this device. Review every answer before you submit.</p>
+      </section>
+      <form id="profile-form">
+        <div class="heading"><h2>Profile</h2><span>Saved locally</span></div>
+        <div class="grid">
+          <label><span>First name</span><input name="firstName" autocomplete="given-name"></label>
+          <label><span>Last name</span><input name="lastName" autocomplete="family-name"></label>
+          <label><span>Full name</span><input name="fullName" autocomplete="name"></label>
+          <label><span>Email</span><input name="email" type="email" autocomplete="email"></label>
+          <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel"></label>
+          <label><span>Current location</span><input name="location" placeholder="City, State"></label>
+          <label><span>Experience (years)</span><input name="experience" inputmode="decimal"></label>
+          <label><span>Current salary</span><input name="currentSalary" inputmode="decimal"></label>
+          <label><span>Expected salary</span><input name="expectedSalary" inputmode="decimal"></label>
+          <label><span>Notice period</span><input name="noticePeriod" placeholder="e.g. 30 days"></label>
+          <label><span>LinkedIn URL</span><input name="linkedin" type="url"></label>
+          <label><span>Portfolio / website</span><input name="website" type="url" autocomplete="url"></label>
+        </div>
+        <label><span>Key skills</span><textarea name="skills" rows="2" placeholder="Java, Spring Boot, Microservices"></textarea></label>
+        <div class="actions">
+          <button class="primary" id="fill-button" type="button">Fill this application</button>
+          <button class="secondary" type="submit">Save profile</button>
+        </div>
+        <button class="linkedin" id="linkedin-easy-apply-button" type="button">LinkedIn: start &amp; fill Easy Apply</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </form>
+      <footer>LinkedIn mode does not click Next, Review, or Submit. It does not answer assessments, upload files, or bypass CAPTCHAs.</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
